@@ -14,7 +14,7 @@ namespace AcrHelloworld.Controllers
         {
             try
             {
-                var registryURL = Environment.GetEnvironmentVariable("REGISTRY_URL");
+                var registryURL = Environment.GetEnvironmentVariable("DOCKER_REGISTRY");
                 if ( registryURL == "SET_REGISTRY_URL")
                 {
                     ViewData["MAPIMAGE"] = "unknownlocation.png";
