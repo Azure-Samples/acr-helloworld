@@ -16,33 +16,30 @@ namespace AcrHelloworld.Controllers
             {
                 var registryURL = Environment.GetEnvironmentVariable("REGISTRY_URL");
                 if ( registryURL == "SET_REGISTRY_URL")
-                    throw new Exception("Set the REGISTRY_URL to your ACR Login URL in the dockerfile. eg: acrdemos.azurecr.io");
+                {
+                    ViewData["MAPIMAGE"] = "unknownlocation.png";
+                }
+                else
+                {
+                    ViewData["REGISTRYURL"] = registryURL;
 
-                ViewData["REGISTRYURL"] = registryURL;
+                    var hostEntry = await System.Net.Dns.GetHostEntryAsync(registryURL);
+                    ViewData["HOSTENTRY"] = hostEntry.HostName;
 
-                var hostEntry = await System.Net.Dns.GetHostEntryAsync(registryURL);
-                ViewData["HOSTENTRY"] = hostEntry.HostName;
+                    string region = hostEntry.HostName.Split('.')[1];
+                    ViewData["REGION"] = region;
 
-                string region = hostEntry.HostName.Split('.')[1];
-                ViewData["REGION"] = region;
+                    string mapImage = string.Format("{0}map.png", region.ToLower());
+                    ViewData["MAPIMAGE"] = mapImage;
 
-                string mapImage = string.Format("{0}map.png", region.ToLower());
-                ViewData["MAPIMAGE"] = mapImage;
-
-                var registryIp = System.Net.Dns.GetHostAddresses(registryURL)[0].ToString();
-                ViewData["REGISTRYIP"] = registryIp;
-
-                //StringBuilder envVars = new StringBuilder();
-                //foreach (DictionaryEntry de in Environment.GetEnvironmentVariables())
-                //    envVars.Append(string.Format("<strong>{0}</strong>:{1}<br \\>", de.Key, de.Value));
-
-                //ViewData["ENV_VARS"] = envVars.ToString();
-
+                    var registryIp = System.Net.Dns.GetHostAddresses(registryURL)[0].ToString();
+                    ViewData["REGISTRYIP"] = registryIp;
+                }
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
-                throw;
+                ViewData["MAPIMAGE"] = "unknownlocation.png";
             }
             return View();
         }
