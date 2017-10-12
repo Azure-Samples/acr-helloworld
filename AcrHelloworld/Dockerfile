@@ -1,4 +1,6 @@
 FROM microsoft/aspnetcore:2.0 AS base
+# Set the registry login URL for the proper map to load
+ENV REGISTRY_URL SET_REGISTRY_URL
 WORKDIR /app
 EXPOSE 80
 

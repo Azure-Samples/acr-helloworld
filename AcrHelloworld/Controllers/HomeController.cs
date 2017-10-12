@@ -14,8 +14,10 @@ namespace AcrHelloworld.Controllers
         {
             try
             {
-                var registryURL = Environment.GetEnvironmentVariable("APPSETTING_DOCKER_REGISTRY_SERVER_URL") ??
-                                                "acrdemos.azurecr.io";
+                var registryURL = Environment.GetEnvironmentVariable("REGISTRY_URL");
+                if ( registryURL == "SET_REGISTRY_URL")
+                    throw new Exception("Set the REGISTRY_URL to your ACR Login URL in the dockerfile. eg: acrdemos.azurecr.io");
+
                 ViewData["REGISTRYURL"] = registryURL;
 
                 var hostEntry = await System.Net.Dns.GetHostEntryAsync(registryURL);

@@ -6,7 +6,7 @@
     <ProjectGuid>4fbd80e7-4a28-49b7-9777-4de45d66bd91</ProjectGuid>
     <DockerLaunchBrowser>True</DockerLaunchBrowser>
     <DockerServiceUrl>http://localhost:{ServicePort}</DockerServiceUrl>
-    <DockerServiceName>acrgeosample</DockerServiceName>
+    <DockerServiceName>acrhelloworld</DockerServiceName>
   </PropertyGroup>
   <ItemGroup>
     <None Include="docker-compose.override.yml">
