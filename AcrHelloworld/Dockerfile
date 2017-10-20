@@ -1,7 +1,7 @@
 FROM microsoft/aspnetcore:2.0 AS base
-# Set the registry login URL for the proper map to load
-# eg: acrdemos.azurecr.io
-ENV DOCKER_REGISTRY SET_REGISTRY_URL
+# Update <acrName> with the name of your registry
+# Example: uniqueregistryname.azurecr.io
+ENV DOCKER_REGISTRY uniqueregistryname.azurecr.io
 WORKDIR /app
 EXPOSE 80
 
