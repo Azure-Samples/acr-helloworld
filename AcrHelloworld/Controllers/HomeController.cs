@@ -15,7 +15,7 @@ namespace AcrHelloworld.Controllers
             try
             {
                 var registryURL = Environment.GetEnvironmentVariable("DOCKER_REGISTRY");
-                if ( registryURL == "SET_REGISTRY_URL")
+                if ( registryURL == "<acrName>.azurecr.io")
                 {
                     ViewData["MAPIMAGE"] = "unknownlocation.png";
                 }
