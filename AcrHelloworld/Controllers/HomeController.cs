@@ -15,22 +15,14 @@ namespace AcrHelloworld.Controllers
             try
             {
                 var registryURL = Environment.GetEnvironmentVariable("DOCKER_REGISTRY");
-                if ( registryURL == "<acrName>.azurecr.io")
+                ViewData["REGISTRYURL"] = registryURL;
+                if (registryURL != "<acrName>.azurecr.io")
                 {
-                    ViewData["MAPIMAGE"] = "unknownlocation.png";
-                }
-                else
-                {
-                    ViewData["REGISTRYURL"] = registryURL;
-
                     var hostEntry = await System.Net.Dns.GetHostEntryAsync(registryURL);
                     ViewData["HOSTENTRY"] = hostEntry.HostName;
 
                     string region = hostEntry.HostName.Split('.')[1];
                     ViewData["REGION"] = region;
-
-                    string mapImage = string.Format("{0}map.png", region.ToLower());
-                    ViewData["MAPIMAGE"] = mapImage;
 
                     var registryIp = System.Net.Dns.GetHostAddresses(registryURL)[0].ToString();
                     ViewData["REGISTRYIP"] = registryIp;
@@ -39,7 +31,6 @@ namespace AcrHelloworld.Controllers
             catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
-                ViewData["MAPIMAGE"] = "unknownlocation.png";
             }
             return View();
         }
