@@ -1,15 +1,16 @@
-FROM microsoft/aspnetcore:2.0 AS base
+FROM mcr.microsoft.com/dotnet/core/aspnet:2.2 AS base
 # Update <acrName> with the name of your registry
 # Example: uniqueregistryname.azurecr.io
 ENV DOCKER_REGISTRY <acrName>.azurecr.io
 WORKDIR /app
 EXPOSE 80
 
-FROM microsoft/aspnetcore-build:2.0 AS build
+FROM mcr.microsoft.com/dotnet/core/sdk:2.2 AS build
 WORKDIR /src
 COPY *.sln ./
 COPY AcrHelloworld/AcrHelloworld.csproj AcrHelloworld/
-RUN dotnet restore
+COPY docker-compose.dcproj ./
+RUN dotnet restore AcrHelloworld/AcrHelloworld.csproj
 COPY . .
 WORKDIR /src/AcrHelloworld
 RUN dotnet build -c Release -o /app

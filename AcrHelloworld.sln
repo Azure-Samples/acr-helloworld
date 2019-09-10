@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.26823.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{4FBD80E7-4A28-49B7-9777-4DE45D66BD91}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AcrHelloworld", "AcrHelloworld\AcrHelloworld.csproj", "{33172090-C08E-4E7E-A68B-3A8F98F3ABCE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AcrHelloworld", "AcrHelloworld\AcrHelloworld.csproj", "{33172090-C08E-4E7E-A68B-3A8F98F3ABCE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
