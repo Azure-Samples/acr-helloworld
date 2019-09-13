@@ -1,3 +1,14 @@
+---
+page_type: sample
+languages:
+- csharp
+- html
+products:
+- azure
+description: "This sample is a very simple Asp.net Core application used to demonstrate Azure Container Registry features."
+urlFragment: acr-helloworld
+---
+
 # ACR-Helloworld
 
 This sample is a very simple Asp.net Core application used to demonstrate Azure Container Registry features.
