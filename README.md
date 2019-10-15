@@ -35,7 +35,7 @@ or `docker build . -f .\AcrHelloworld\Dockerfile -t acr-helloworld`
 - [Azure Container Registry Geo-replication overview](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-geo-replication)
 - [Azure Container Registry Geo-replication tutorial](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-tutorial-prepare-app)
 
-# Contributing
+## Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
 Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
