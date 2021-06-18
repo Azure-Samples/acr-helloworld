@@ -25,7 +25,7 @@ This project framework provides the following features:
 2. `cd acr-helloworld`
 3. `docker-compose build`
 or `docker build . -f .\AcrHelloworld\Dockerfile -t acr-helloworld`
-4. `docker run -d -p 8080:80 acr-helloworld`
+4. `docker run -d -p 8080:80 acrhelloworld`
 5. Browse: http://localhost:8080
 
 ## Resources
